@@ -13,8 +13,8 @@ create table populationEstimateCity (city varchar, "2013" float, "2014" float, "
 create table housingPopulationCounty (city varchar, "2013" float, "2014" float, "2015" float, "2016" float, "2017" float, "2018" float, "2019" float);
 
 
-COPY newClimateData from '/tmp/newClimateData.csv' delimiter ',' csv header;
-COPY populationEstimateCity from '/tmp/cityPopulationData.csv' delimiter ',' csv header;
+--COPY newClimateData from '/tmp/newClimateData.csv' delimiter ',' csv header;
+--COPY populationEstimateCity from '/tmp/cityPopulationData.csv' delimiter ',' csv header;
 
-COPY newFireData from '/tmp/newFireData.csv' delimiter "," csv header;
-COPY housingPopulationCounty '/tmp/"countyHousingDensity".csv' delimiter "," csv header;
+--COPY newFireData from '/tmp/newFireData.csv' delimiter "," csv header;
+--COPY housingPopulationCounty '/tmp/"countyHousingDensity".csv' delimiter "," csv header;
