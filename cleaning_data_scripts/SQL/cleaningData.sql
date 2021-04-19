@@ -8,7 +8,7 @@ create table FireFreq
 as (select count(*), date_trunc, incident_county from year_only_fire_view
 group by date_trunc, incident_county);
 
-DELETE FROM FireFreq WHERE incident_county IS NULL; --82 rows
+DELETE FROM FireFreq WHERE incident_county IS NULL; --12 rows
 ALTER TABLE FireFreq ADD PRIMARY KEY(date_trunc,incident_county);
 
 --- cleaning climate
