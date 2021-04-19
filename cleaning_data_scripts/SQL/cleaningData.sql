@@ -35,7 +35,7 @@ order by c.time;
 
 --- City population
 UPDATE cityPopulationCleaned
-SET city= replace(city, ' city', '') as city;
+SET city= replace(city, ' city', '');
 
 -- joining housing density data with climate+fire data
 CREATE VIEW housingClimateFireView as
@@ -56,3 +56,20 @@ from housingClimateFireView c
 right join cityPopulationCleaned cp on c.year = cp.year and c.city = cp.city
 order by c.time
 
+---moving to csv
+CREATE table housingClimateFireTable as
+select c.time, c.city, c.county, c.year, c.frequency, c."2m_temperature", 
+c.total_precipitation, c.low_vegetation_cover, c.high_vegetation_cover, c."10m_wind_speed",
+c."volumetric_soil_water_layer_1", c.total_cloud_cover, hp.density
+from climateAndFireView c
+right join housingDensityCountyCleaned hp on c.year = hp.year and c.county = hp.county
+WHERE c.year != 2020
+order by c.time;
+
+create table densityHousingClimateFireTable as
+select c.time, c.city, c.county, c.year, c.frequency, c."2m_temperature", 
+c.total_precipitation, c.low_vegetation_cover, c.high_vegetation_cover, c."10m_wind_speed",
+c."volumetric_soil_water_layer_1", c.total_cloud_cover, cp.population
+from housingClimateFireView c
+right join cityPopulationCleaned cp on c.year = cp.year and c.city = cp.city
+order by c.time
