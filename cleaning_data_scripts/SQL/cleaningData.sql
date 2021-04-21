@@ -9,7 +9,7 @@ as (select count(*), date_trunc, incident_county from year_only_fire_view
 group by date_trunc, incident_county);
 
 DELETE FROM FireFreq WHERE incident_county IS NULL; --12 rows
-ALTER TABLE FireFreq ADD PRIMARY KEY(date_trunc,incident_county);
+--ALTER TABLE FireFreq ADD PRIMARY KEY(date_trunc,incident_county);
 
 --- cleaning climate
 UPDATE newclimatedata
@@ -19,7 +19,7 @@ create view year_only_climate_view
 as select extract(year from time) as year_onlyclimate, * from newclimatedata;
 
 create table distinctClimateData as
-(select time, max(latitude) as latitude, max(longitude) as longitude, county, max(year_onlyclimate) as yearonlyclimate, avg("2m_temperature") as "2m_temperature", 
+(select time, max(latitude) as latitude, min(longitude) as longitude, county, max(year_onlyclimate) as yearonlyclimate, avg("2m_temperature") as "2m_temperature", 
 avg(total_precipitation) as total_precipitation, avg(low_vegetation_cover) as low_vegetation_cover, 
 avg(high_vegetation_cover) as high_vegetation_cover, avg("10m_wind_speed") as "10m_wind_speed", 
 avg("volumetric_soil_water_layer_1") as "volumetric_soil_water_layer_1", avg(total_cloud_cover) as total_cloud_cover
