@@ -22,7 +22,11 @@ CREATE TABLE countyPopulationCleaned(
 
 --\COPY newClimateData from '/Users/saadiakarim 1/Documents/Stats 170a/Final Project Spring/capstone-accenture/clean_data/newClimateData.csv' delimiter ',' csv header;
 --\COPY newFireData from '/Users/saadiakarim 1/Documents/Stats 170a/Final Project Spring/capstone-accenture/clean_data/newFireData.csv' delimiter ',' csv header;
-
 --\COPY housingDensityCountyCleaned from '/Users/saadiakarim 1/Documents/Stats 170a/Final Project Spring/capstone-accenture/clean_data/housingPopulationCountyCleaned.csv' delimiter ',' csv header;
 --\COPY countyPopulationCleaned from '/Users/saadiakarim 1/Documents/Stats 170a/capstone-accenture/clean_data/countyPopulationData.csv' delimiter ',' csv header;
+
+--\COPY newClimateData from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/newClimateData.csv' delimiter ',' csv header;
+--\COPY newFireData from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/newFireData.csv' delimiter ',' csv header;
+--\COPY housingDensityCountyCleaned from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/housingPopulationCountyCleaned.csv' delimiter ',' csv header;
+--\COPY countyPopulationCleaned from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/countyPopulationData.csv' delimiter ',' csv header;
 
