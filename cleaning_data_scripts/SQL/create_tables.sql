@@ -8,25 +8,26 @@ create table newFireData (incident_name varchar, incident_dateonly_extinguished 
 						 incident_latitude float, incident_longitude float, city varchar,
 						 incident_county varchar, incident_id varchar, incident_url varchar);
 						 
-CREATE TABLE housingDensityCountyCleaned(
+create table newHousingData(
 	county VARCHAR,
 	Year int,
 	Density float
 );
 
-CREATE TABLE countyPopulationCleaned(
+create table newPopulationData(
 	county VARCHAR,
 	Year int,
-	Population int
+	Population int,
+	LandArea double precision,
+	PopulationDensity float
 );
 
---\COPY newClimateData from '/Users/saadiakarim 1/Documents/Stats 170a/Final Project Spring/capstone-accenture/clean_data/newClimateData.csv' delimiter ',' csv header;
---\COPY newFireData from '/Users/saadiakarim 1/Documents/Stats 170a/Final Project Spring/capstone-accenture/clean_data/newFireData.csv' delimiter ',' csv header;
---\COPY housingDensityCountyCleaned from '/Users/saadiakarim 1/Documents/Stats 170a/Final Project Spring/capstone-accenture/clean_data/housingPopulationCountyCleaned.csv' delimiter ',' csv header;
---\COPY countyPopulationCleaned from '/Users/saadiakarim 1/Documents/Stats 170a/capstone-accenture/clean_data/countyPopulationData.csv' delimiter ',' csv header;
+--- Commands to populate tables that were created >>> (insert your file location) <<<
+--\COPY newClimateData from 'file location of newClimateData.csv' delimiter ',' csv header;
+--\COPY newFireData from 'file location of newFireData.csv' delimiter ',' csv header;
+--\COPY newHousingData from 'file location of newHousingData.csv' delimiter ',' csv header;
+--\COPY newPopulationData from 'file location of newPopulationData.csv' delimiter ',' csv header;
 
---\COPY newClimateData from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/newClimateData.csv' delimiter ',' csv header;
---\COPY newFireData from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/newFireData.csv' delimiter ',' csv header;
---\COPY housingDensityCountyCleaned from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/housingPopulationCountyCleaned.csv' delimiter ',' csv header;
---\COPY countyPopulationCleaned from '/Users/bibiuwun/Desktop/UCI/STATS_170/project/capstone-accenture/clean_data/countyPopulationData.csv' delimiter ',' csv header;
+--- Command to push final table to csv for modeling use >>> (insert your location) <<<
+--\COPY fireClimateHumanTable to 'location for fireClimateHumanTable4.csv' delimiter ',' csv header;
 
