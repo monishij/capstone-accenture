@@ -1,414 +1,68 @@
-county,Year,Population
-California,2013,38260787
-Alameda County,2013,1579593
-Alpine County,2013,1128
-Amador County,2013,36620
-Butte County,2013,221641
-Calaveras County,2013,44655
-Colusa County,2013,21250
-Contra Costa County,2013,1093401
-Del Norte County,2013,27816
-El Dorado County,2013,181481
-Fresno County,2013,951514
-Glenn County,2013,27809
-Humboldt County,2013,134403
-Imperial County,2013,176438
-Inyo County,2013,18357
-Kern County,2013,862000
-Kings County,2013,150337
-Lake County,2013,63796
-Lassen County,2013,32129
-Los Angeles County,2013,9992484
-Madera County,2013,151370
-Marin County,2013,258409
-Mariposa County,2013,17809
-Mendocino County,2013,87054
-Merced County,2013,262026
-Modoc County,2013,9145
-Mono County,2013,14067
-Monterey County,2013,426712
-Napa County,2013,139580
-Nevada County,2013,97938
-Orange County,2013,3104950
-Placer County,2013,365398
-Plumas County,2013,18895
-Riverside County,2013,2286755
-Sacramento County,2013,1457341
-San Benito County,2013,57239
-San Bernardino County,2013,2082738
-San Diego County,2013,3209768
-San Francisco County,2013,839572
-San Joaquin County,2013,702046
-San Luis Obispo County,2013,275696
-San Mateo County,2013,748661
-Santa Barbara County,2013,434601
-Santa Clara County,2013,1866425
-Santa Cruz County,2013,268816
-Shasta County,2013,178397
-Sierra County,2013,3028
-Siskiyou County,2013,43532
-Solano County,2013,423659
-Sonoma County,2013,494073
-Stanislaus County,2013,523451
-Sutter County,2013,94507
-Tehama County,2013,62875
-Trinity County,2013,13427
-Tulare County,2013,452460
-Tuolumne County,2013,53997
-Ventura County,2013,838136
-Yolo County,2013,206292
-Yuba County,2013,73090
-California,2014,38596972
-Alameda County,2014,1607792
-Alpine County,2014,1080
-Amador County,2014,36726
-Butte County,2014,223516
-Calaveras County,2014,44671
-Colusa County,2014,21176
-Contra Costa County,2014,1108876
-Del Norte County,2014,27175
-El Dorado County,2014,183108
-Fresno County,2014,960567
-Glenn County,2014,27831
-Humboldt County,2014,134494
-Imperial County,2014,177974
-Inyo County,2014,18292
-Kern County,2014,869176
-Kings County,2014,149495
-Lake County,2014,64044
-Lassen County,2014,31664
-Los Angeles County,2014,10040072
-Madera County,2014,153456
-Marin County,2014,260359
-Mariposa County,2014,17714
-Mendocino County,2014,87225
-Merced County,2014,264419
-Modoc County,2014,9068
-Mono County,2014,14134
-Monterey County,2014,428475
-Napa County,2014,140405
-Nevada County,2014,98572
-Orange County,2014,3126537
-Placer County,2014,369217
-Plumas County,2014,18622
-Riverside County,2014,2316162
-Sacramento County,2014,1474917
-San Benito County,2014,57825
-San Bernardino County,2014,2099181
-San Diego County,2014,3248877
-San Francisco County,2014,850750
-San Joaquin County,2014,711579
-San Luis Obispo County,2014,278227
-San Mateo County,2014,757204
-Santa Barbara County,2014,439045
-Santa Clara County,2014,1891753
-Santa Cruz County,2014,270861
-Shasta County,2014,178844
-Sierra County,2014,2972
-Siskiyou County,2014,43338
-Solano County,2014,429006
-Sonoma County,2014,498560
-Stanislaus County,2014,528015
-Sutter County,2014,94778
-Tehama County,2014,62801
-Trinity County,2014,13128
-Tulare County,2014,455138
-Tuolumne County,2014,53851
-Ventura County,2014,842297
-Yolo County,2014,208398
-Yuba County,2014,73533
-California,2015,38918045
-Alameda County,2015,1634538
-Alpine County,2015,1077
-Amador County,2015,37031
-Butte County,2015,224631
-Calaveras County,2015,44965
-Colusa County,2015,21231
-Contra Costa County,2015,1124405
-Del Norte County,2015,27190
-El Dorado County,2015,184569
-Fresno County,2015,969488
-Glenn County,2015,27753
-Humboldt County,2015,135102
-Imperial County,2015,178937
-Inyo County,2015,18108
-Kern County,2015,876031
-Kings County,2015,150085
-Lake County,2015,64260
-Lassen County,2015,31256
-Los Angeles County,2015,10085416
-Madera County,2015,153576
-Marin County,2015,260916
-Mariposa County,2015,17622
-Mendocino County,2015,87107
-Merced County,2015,266353
-Modoc County,2015,9056
-Mono County,2015,14077
-Monterey County,2015,430552
-Napa County,2015,140862
-Nevada County,2015,98676
-Orange County,2015,3149280
-Placer County,2015,372841
-Plumas County,2015,18427
-Riverside County,2015,2345816
-Sacramento County,2015,1493674
-San Benito County,2015,58216
-San Bernardino County,2015,2115411
-San Diego County,2015,3280850
-San Francisco County,2015,863010
-San Joaquin County,2015,722271
-San Luis Obispo County,2015,280077
-San Mateo County,2015,765055
-Santa Barbara County,2015,442229
-Santa Clara County,2015,1916285
-Santa Cruz County,2015,273503
-Shasta County,2015,178314
-Sierra County,2015,2985
-Siskiyou County,2015,43254
-Solano County,2015,433409
-Sonoma County,2015,500863
-Stanislaus County,2015,533211
-Sutter County,2015,95282
-Tehama County,2015,63158
-Trinity County,2015,13094
-Tulare County,2015,457161
-Tuolumne County,2015,53615
-Ventura County,2015,845802
-Yolo County,2015,212037
-Yuba County,2015,74045
-California,2016,39167117
-Alameda County,2016,1650950
-Alpine County,2016,1047
-Amador County,2016,37429
-Butte County,2016,226231
-Calaveras County,2016,45322
-Colusa County,2016,21496
-Contra Costa County,2016,1137268
-Del Norte County,2016,27382
-El Dorado County,2016,185976
-Fresno County,2016,976830
-Glenn County,2016,27840
-Humboldt County,2016,136290
-Imperial County,2016,180179
-Inyo County,2016,17922
-Kern County,2016,880856
-Kings County,2016,149382
-Lake County,2016,63903
-Lassen County,2016,30721
-Los Angeles County,2016,10105708
-Madera County,2016,153956
-Marin County,2016,260562
-Mariposa County,2016,17456
-Mendocino County,2016,87285
-Merced County,2016,267628
-Modoc County,2016,8961
-Mono County,2016,14273
-Monterey County,2016,433953
-Napa County,2016,140840
-Nevada County,2016,98913
-Orange County,2016,3164986
-Placer County,2016,378943
-Plumas County,2016,18665
-Riverside County,2016,2380081
-Sacramento County,2016,1510987
-San Benito County,2016,59225
-San Bernardino County,2016,2131960
-San Diego County,2016,3306089
-San Francisco County,2016,871512
-San Joaquin County,2016,732809
-San Luis Obispo County,2016,281803
-San Mateo County,2016,767906
-Santa Barbara County,2016,444340
-Santa Clara County,2016,1928368
-Santa Cruz County,2016,274396
-Shasta County,2016,178571
-Sierra County,2016,2951
-Siskiyou County,2016,43376
-Solano County,2016,438858
-Sonoma County,2016,502547
-Stanislaus County,2016,539255
-Sutter County,2016,95742
-Tehama County,2016,63453
-Trinity County,2016,12828
-Tulare County,2016,459235
-Tuolumne County,2016,53770
-Ventura County,2016,847323
-Yolo County,2016,215627
-Yuba County,2016,74952
-California,2017,39358497
-Alameda County,2017,1660196
-Alpine County,2017,1111
-Amador County,2017,38529
-Butte County,2017,228696
-Calaveras County,2017,45681
-Colusa County,2017,21579
-Contra Costa County,2017,1145535
-Del Norte County,2017,27351
-El Dorado County,2017,188679
-Fresno County,2017,985238
-Glenn County,2017,27926
-Humboldt County,2017,136507
-Imperial County,2017,181649
-Inyo County,2017,17868
-Kern County,2017,887356
-Kings County,2017,149665
-Lake County,2017,64111
-Lassen County,2017,30920
-Los Angeles County,2017,10103711
-Madera County,2017,155423
-Marin County,2017,259749
-Mariposa County,2017,17414
-Mendocino County,2017,87576
-Merced County,2017,271096
-Modoc County,2017,8876
-Mono County,2017,14354
-Monterey County,2017,434534
-Napa County,2017,139878
-Nevada County,2017,99367
-Orange County,2017,3174289
-Placer County,2017,385115
-Plumas County,2017,18660
-Riverside County,2017,2414964
-Sacramento County,2017,1527301
-San Benito County,2017,60164
-San Bernardino County,2017,2150945
-San Diego County,2017,3321237
-San Francisco County,2017,878040
-San Joaquin County,2017,743296
-San Luis Obispo County,2017,282481
-San Mateo County,2017,768901
-Santa Barbara County,2017,445298
-Santa Clara County,2017,1932510
-Santa Cruz County,2017,274856
-Shasta County,2017,179384
-Sierra County,2017,3002
-Siskiyou County,2017,43622
-Solano County,2017,443511
-Sonoma County,2017,502469
-Stanislaus County,2017,544717
-Sutter County,2017,96204
-Tehama County,2017,63847
-Trinity County,2017,12726
-Tulare County,2017,462308
-Tuolumne County,2017,53976
-Ventura County,2017,849044
-Yolo County,2017,218477
-Yuba County,2017,76578
-California,2018,39461588
-Alameda County,2018,1666756
-Alpine County,2018,1089
-Amador County,2018,39405
-Butte County,2018,230339
-Calaveras County,2018,45698
-Colusa County,2018,21418
-Contra Costa County,2018,1150519
-Del Norte County,2018,27740
-El Dorado County,2018,190746
-Fresno County,2018,991950
-Glenn County,2018,27967
-Humboldt County,2018,136244
-Imperial County,2018,181523
-Inyo County,2018,17946
-Kern County,2018,893758
-Kings County,2018,151382
-Lake County,2018,64317
-Lassen County,2018,30618
-Los Angeles County,2018,10073906
-Madera County,2018,156882
-Marin County,2018,259662
-Mariposa County,2018,17405
-Mendocino County,2018,87401
-Merced County,2018,274151
-Modoc County,2018,8800
-Mono County,2018,14403
-Monterey County,2018,433950
-Napa County,2018,138789
-Nevada County,2018,99508
-Orange County,2018,3175973
-Placer County,2018,392330
-Plumas County,2018,18741
-Riverside County,2018,2445789
-Sacramento County,2018,1538746
-San Benito County,2018,61467
-San Bernardino County,2018,2166753
-San Diego County,2018,3333861
-San Francisco County,2018,880696
-San Joaquin County,2018,752491
-San Luis Obispo County,2018,283354
-San Mateo County,2018,768681
-Santa Barbara County,2018,445780
-Santa Clara County,2018,1932337
-Santa Cruz County,2018,273841
-Shasta County,2018,179709
-Sierra County,2018,2997
-Siskiyou County,2018,43550
-Solano County,2018,445725
-Sonoma County,2018,498643
-Stanislaus County,2018,548126
-Sutter County,2018,96348
-Tehama County,2018,64018
-Trinity County,2018,12567
-Tulare County,2018,464589
-Tuolumne County,2018,54387
-Ventura County,2018,848142
-Yolo County,2018,220118
-Yuba County,2018,77557
-California,2019,39512223
-Alameda County,2019,1671329
-Alpine County,2019,1129
-Amador County,2019,39752
-Butte County,2019,219186
-Calaveras County,2019,45905
-Colusa County,2019,21547
-Contra Costa County,2019,1153526
-Del Norte County,2019,27812
-El Dorado County,2019,192843
-Fresno County,2019,999101
-Glenn County,2019,28393
-Humboldt County,2019,135558
-Imperial County,2019,181215
-Inyo County,2019,18039
-Kern County,2019,900202
-Kings County,2019,152940
-Lake County,2019,64386
-Lassen County,2019,30573
-Los Angeles County,2019,10039107
-Madera County,2019,157327
-Marin County,2019,258826
-Mariposa County,2019,17203
-Mendocino County,2019,86749
-Merced County,2019,277680
-Modoc County,2019,8841
-Mono County,2019,14444
-Monterey County,2019,434061
-Napa County,2019,137744
-Nevada County,2019,99755
-Orange County,2019,3175692
-Placer County,2019,398329
-Plumas County,2019,18807
-Riverside County,2019,2470546
-Sacramento County,2019,1552058
-San Benito County,2019,62808
-San Bernardino County,2019,2180085
-San Diego County,2019,3338330
-San Francisco County,2019,881549
-San Joaquin County,2019,762148
-San Luis Obispo County,2019,283111
-San Mateo County,2019,766573
-Santa Barbara County,2019,446499
-Santa Clara County,2019,1927852
-Santa Cruz County,2019,273213
-Shasta County,2019,180080
-Sierra County,2019,3005
-Siskiyou County,2019,43539
-Solano County,2019,447643
-Sonoma County,2019,494336
-Stanislaus County,2019,550660
-Sutter County,2019,96971
-Tehama County,2019,65084
-Trinity County,2019,12285
-Tulare County,2019,466195
-Tuolumne County,2019,54478
-Ventura County,2019,846006
-Yolo County,2019,220500
-Yuba County,2019,78668
+table with row headers in column A and column headers in rows 3 through 4 (leading dots indicate sub-parts),,,,,,,,,,,,
+"Annual Estimates of the Resident Population for Counties in California: April 1, 2010 to July 1, 2019",,,,,,,,,,,,
+Geographic Area,"April 1, 2010",,Population Estimate (as of July 1),,,,,,,,,
+,Census,Estimates Base,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019
+California,"37,253,956","37,254,519","37,319,502","37,638,369","37,948,800","38,260,787","38,596,972","38,918,045","39,167,117","39,358,497","39,461,588","39,512,223"
+".Alameda County, California","1,510,271","1,510,258","1,512,986","1,530,915","1,553,764","1,579,593","1,607,792","1,634,538","1,650,950","1,660,196","1,666,756","1,671,329"
+".Alpine County, California","1,175","1,175","1,161","1,093","1,110","1,128","1,080","1,077","1,047","1,111","1,089","1,129"
+".Amador County, California","38,091","38,091","37,886","37,543","37,104","36,620","36,726","37,031","37,429","38,529","39,405","39,752"
+".Butte County, California","220,000","220,005","219,949","219,975","220,869","221,641","223,516","224,631","226,231","228,696","230,339","219,186"
+".Calaveras County, California","45,578","45,578","45,468","45,160","44,815","44,655","44,671","44,965","45,322","45,681","45,698","45,905"
+".Colusa County, California","21,419","21,407","21,437","21,323","21,284","21,250","21,176","21,231","21,496","21,579","21,418","21,547"
+".Contra Costa County, California","1,049,025","1,049,204","1,052,540","1,065,440","1,077,548","1,093,401","1,108,876","1,124,405","1,137,268","1,145,535","1,150,519","1,153,526"
+".Del Norte County, California","28,610","28,610","28,566","28,443","28,190","27,816","27,175","27,190","27,382","27,351","27,740","27,812"
+".El Dorado County, California","181,058","181,058","181,136","180,936","180,575","181,481","183,108","184,569","185,976","188,679","190,746","192,843"
+".Fresno County, California","930,450","930,507","932,039","939,406","945,045","951,514","960,567","969,488","976,830","985,238","991,950","999,101"
+".Glenn County, California","28,122","28,122","28,127","28,139","27,851","27,809","27,831","27,753","27,840","27,926","27,967","28,393"
+".Humboldt County, California","134,623","134,611","135,009","135,243","134,572","134,403","134,494","135,102","136,290","136,507","136,244","135,558"
+".Imperial County, California","174,528","174,524","174,716","175,786","176,575","176,438","177,974","178,937","180,179","181,649","181,523","181,215"
+".Inyo County, California","18,546","18,542","18,511","18,392","18,351","18,357","18,292","18,108","17,922","17,868","17,946","18,039"
+".Kern County, California","839,631","839,621","840,996","847,970","853,606","862,000","869,176","876,031","880,856","887,356","893,758","900,202"
+".Kings County, California","152,982","152,974","152,370","151,868","150,991","150,337","149,495","150,085","149,382","149,665","151,382","152,940"
+".Lake County, California","64,665","64,662","64,735","64,251","63,954","63,796","64,044","64,260","63,903","64,111","64,317","64,386"
+".Lassen County, California","34,895","34,895","34,831","34,246","33,629","32,129","31,664","31,256","30,721","30,920","30,618","30,573"
+".Los Angeles County, California","9,818,605","9,819,968","9,823,246","9,876,482","9,935,375","9,992,484","10,040,072","10,085,416","10,105,708","10,103,711","10,073,906","10,039,107"
+".Madera County, California","150,865","150,834","150,986","151,675","151,527","151,370","153,456","153,576","153,956","155,423","156,882","157,327"
+".Marin County, California","252,409","252,430","252,904","255,376","256,061","258,409","260,359","260,916","260,562","259,749","259,662","258,826"
+".Mariposa County, California","18,251","18,247","18,277","18,170","17,881","17,809","17,714","17,622","17,456","17,414","17,405","17,203"
+".Mendocino County, California","87,841","87,850","87,799","87,334","87,288","87,054","87,225","87,107","87,285","87,576","87,401","86,749"
+".Merced County, California","255,793","255,796","256,721","259,297","260,867","262,026","264,419","266,353","267,628","271,096","274,151","277,680"
+".Modoc County, California","9,686","9,682","9,694","9,509","9,351","9,145","9,068","9,056","8,961","8,876","8,800","8,841"
+".Mono County, California","14,202","14,206","14,257","14,422","14,331","14,067","14,134","14,077","14,273","14,354","14,403","14,444"
+".Monterey County, California","415,057","415,059","416,373","420,456","424,788","426,712","428,475","430,552","433,953","434,534","433,950","434,061"
+".Napa County, California","136,484","136,535","136,759","137,691","138,538","139,580","140,405","140,862","140,840","139,878","138,789","137,744"
+".Nevada County, California","98,764","98,747","98,790","98,701","98,137","97,938","98,572","98,676","98,913","99,367","99,508","99,755"
+".Orange County, California","3,010,232","3,008,989","3,015,171","3,049,271","3,078,068","3,104,950","3,126,537","3,149,280","3,164,986","3,174,289","3,175,973","3,175,692"
+".Placer County, California","348,432","348,502","350,021","356,328","360,263","365,398","369,217","372,841","378,943","385,115","392,330","398,329"
+".Plumas County, California","20,007","20,007","19,914","19,719","19,377","18,895","18,622","18,427","18,665","18,660","18,741","18,807"
+".Riverside County, California","2,189,641","2,189,765","2,201,576","2,234,070","2,261,204","2,286,755","2,316,162","2,345,816","2,380,081","2,414,964","2,445,789","2,470,546"
+".Sacramento County, California","1,418,788","1,418,735","1,421,383","1,433,730","1,444,852","1,457,341","1,474,917","1,493,674","1,510,987","1,527,301","1,538,746","1,552,058"
+".San Benito County, California","55,269","55,265","55,516","55,977","56,599","57,239","57,825","58,216","59,225","60,164","61,467","62,808"
+".San Bernardino County, California","2,035,210","2,035,183","2,040,848","2,060,827","2,073,512","2,082,738","2,099,181","2,115,411","2,131,960","2,150,945","2,166,753","2,180,085"
+".San Diego County, California","3,095,313","3,095,349","3,103,212","3,137,156","3,174,335","3,209,768","3,248,877","3,280,850","3,306,089","3,321,237","3,333,861","3,338,330"
+".San Francisco County, California","805,235","805,184","805,505","815,650","828,876","839,572","850,750","863,010","871,512","878,040","880,696","881,549"
+".San Joaquin County, California","685,306","685,306","687,127","694,354","699,593","702,046","711,579","722,271","732,809","743,296","752,491","762,148"
+".San Luis Obispo County, California","269,637","269,597","269,802","271,058","274,160","275,696","278,227","280,077","281,803","282,481","283,354","283,111"
+".San Mateo County, California","718,451","718,517","719,699","728,344","739,224","748,661","757,204","765,055","767,906","768,901","768,681","766,573"
+".Santa Barbara County, California","423,895","423,947","424,231","425,453","429,699","434,601","439,045","442,229","444,340","445,298","445,780","446,499"
+".Santa Clara County, California","1,781,642","1,781,686","1,786,040","1,812,054","1,837,853","1,866,425","1,891,753","1,916,285","1,928,368","1,932,510","1,932,337","1,927,852"
+".Santa Cruz County, California","262,382","262,350","263,147","264,858","266,340","268,816","270,861","273,503","274,396","274,856","273,841","273,213"
+".Shasta County, California","177,223","177,221","177,274","177,588","177,875","178,397","178,844","178,314","178,571","179,384","179,709","180,080"
+".Sierra County, California","3,240","3,239","3,220","3,098","3,067","3,028","2,972","2,985","2,951","3,002","2,997","3,005"
+".Siskiyou County, California","44,900","44,900","44,938","44,615","44,079","43,532","43,338","43,254","43,376","43,622","43,550","43,539"
+".Solano County, California","413,344","413,343","413,967","416,342","419,674","423,659","429,006","433,409","438,858","443,511","445,725","447,643"
+".Sonoma County, California","483,878","483,861","484,755","487,421","489,993","494,073","498,560","500,863","502,547","502,469","498,643","494,336"
+".Stanislaus County, California","514,453","514,450","515,145","517,560","520,424","523,451","528,015","533,211","539,255","544,717","548,126","550,660"
+".Sutter County, California","94,737","94,756","94,751","94,482","94,189","94,507","94,778","95,282","95,742","96,204","96,348","96,971"
+".Tehama County, California","63,463","63,440","63,559","63,331","63,212","62,875","62,801","63,158","63,453","63,847","64,018","65,084"
+".Trinity County, California","13,786","13,784","13,755","13,685","13,489","13,427","13,128","13,094","12,828","12,726","12,567","12,285"
+".Tulare County, California","442,179","442,182","442,969","446,784","449,779","452,460","455,138","457,161","459,235","462,308","464,589","466,195"
+".Tuolumne County, California","55,365","55,368","55,190","54,830","54,221","53,997","53,851","53,615","53,770","53,976","54,387","54,478"
+".Ventura County, California","823,318","823,398","825,097","830,099","833,516","838,136","842,297","845,802","847,323","849,044","848,142","846,006"
+".Yolo County, California","200,849","200,855","201,073","201,954","204,576","206,292","208,398","212,037","215,627","218,477","220,118","220,500"
+".Yuba County, California","72,155","72,142","72,348","72,489","72,774","73,090","73,533","74,045","74,952","76,578","77,557","78,668"
+"Note: The estimates are based on the 2010 Census and reflect changes to the April 1, 2010 population due to the Count Question Resolution program and geographic program revisions. All geographic boundaries for the 2019 population estimates are as of January 1, 2019. For population estimates methodology statements, see http://www.census.gov/programs-surveys/popest/technical-documentation/methodology.html.",,,,,,,,,,,,
+Suggested Citation:,,,,,,,,,,,,
+"Annual Estimates of the Resident Population for Counties in California: April 1, 2010 to July 1, 2019 (CO-EST2019-ANNRES-06)",,,,,,,,,,,,
+"Source: U.S. Census Bureau, Population Division",,,,,,,,,,,,
+Release Date: March 2020,,,,,,,,,,,,
