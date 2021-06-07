@@ -17,7 +17,7 @@ library(ggplot2)
 
 This reads in the finalized data table with all variables.
 ```{r}
-data <- read.csv('clean_data/fireClimateHumanTable.csv')
+data <- read.csv('clean_data/fireClimateHumanTable_editted.csv')
 ```
 
 We add an indicator variable summer_month for whether the record is in the summer season or not (June, July, or August).
