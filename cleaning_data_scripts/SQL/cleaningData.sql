@@ -59,11 +59,8 @@ set county= replace(county, ' County', '');
 create table fireClimateHumanTable as
 select c.time, c.latitude, c.longitude, c.county, c.year, c.count, c."2m_temperature", 
 c.total_precipitation, c.low_vegetation_cover, c.high_vegetation_cover, c."10m_wind_speed",
-c."volumetric_soil_water_layer_1", c.total_cloud_cover, c.housingDensity, cp.population
+c."volumetric_soil_water_layer_1", c.total_cloud_cover, c.housingDensity, cp.population, cp.populationdensity
 from housingClimateFireView c
 left join newPopulationData cp on c.year = cp.year and c.county = cp.county
 order by c.time
-
-
-
-SELECT * FROM fireClimateHumanTable
+--- End| Use fireClimateHumanTable
