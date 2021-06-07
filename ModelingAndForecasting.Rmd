@@ -1,0 +1,314 @@
+---
+title: "CarbayesMSE"
+output: html_document
+---
+
+```{r}
+#install.packages('CARbayes')
+#install.packages('CARBayesST')
+library(CARBayes)
+library(tidyverse)
+library(CARBayesST)
+library('lme4')
+library(tidyverse)
+library(janitor)
+library(ggplot2)
+```
+
+Load the data from the clean data folder: INSERT PATH HERE, and scale population density
+```{r loading data}
+data <- read.csv('clean_data/fireClimateHumanTable.csv')
+data$populationdensity <- data$populationdensity/10
+data
+```
+Load the neighborhood matrix and format it
+
+```{r load neighborhood matrix}
+neighborhood_matrix <- read.csv('clean_data/neighboorHoodMatrix.csv', header=FALSE)
+neighborhood_matrix <- as.matrix(neighborhood_matrix)
+W <- matrix(NA, 56, 56)
+for(i in 1:56){
+  for(j in 1:56){
+    W[i,j] = as.numeric(neighborhood_matrix[i+1,j+1])
+  }
+}
+W
+```
+
+FOR CARBAYES:
+
+The model:
+
+```{r}
+model <- ST.CARlinear(formula = "count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed + populationdensity",
+            family = 'poisson',
+            data = data,
+            W = W,
+            burnin = 5000,
+            n.sample = 10000)
+```
+
+The MSE function:
+
+```{r}
+train_test_validation <- function(formula_string, data, W){
+  total_MSE = 0
+  for (y in 2013:2019){
+    train<- data %>%
+    subset(year!=y)
+    test<-data %>%
+    subset(year==y)
+  
+    model <- ST.CARlinear(formula = formula_string,
+                family = 'poisson',
+                data = train,
+                W = W,
+                burnin = 500,
+                n.sample = 1000)
+    total = matrix(NA,  nrow = dim(test)[1], ncol = dim(model$samples$beta)[1] )
+    samples.beta = as.matrix(model$samples$beta)
+    samples.phi = as.matrix(model$samples$phi)
+    samples.delta = as.matrix(model$samples$delta)
+    samples.alpha = as.vector(model$samples$alpha[,1])
+    t = as.vector(rep(73:84, each=56))
+    county <- rep(1:56,12)
+    N = length(train$count)/56
+    t.bar = sum(1:72)/72
+    total.median = rep(NA, each=dim(test)[1])
+    for(i in 1:dim(test)[1]){
+      for(j in 1:dim(model$samples$beta)[1])
+      {
+        total[i,j] =as.numeric(exp(sum(samples.beta[j,]*c(1,test$X2m_temperature[i],
+                                                          test$low_vegetation_cover[i],
+                                                          test$X10m_wind_speed[i],
+                                                          test$populationdensity[i])) + samples.phi[j,test$county_factor[i]] + (samples.alpha[j] + samples.delta[j,test$county_factor[i]])*((test$month_and_year_factor[i] - t.bar)/72)))
+      }
+      total.median[i] = median(total[i,])
+    }
+    
+    mse = 0
+    for(i in 1:length(total.median)){
+      mse = mse + (test$count[i] - total.median[i])**2
+    }
+    mse = mse/length(total.median)
+    total_MSE = total_MSE + mse
+    
+  }
+  return(total_MSE/7)
+}
+```
+
+
+```{r}
+train_test_validation("count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed + populationdensity", data, W)
+```
+
+Forecasting:
+
+Predict one data row:
+```{r}
+forecast_one_row <- function(model, data, i){
+  total = rep(NA, dim(model$samples$beta)[1] )
+  samples.beta = as.matrix(model$samples$beta)
+  samples.phi = as.matrix(model$samples$phi)
+  samples.delta = as.matrix(model$samples$delta)
+  samples.alpha = as.vector(model$samples$alpha[,1])
+  t.bar = sum(1:72)/72
+  for(j in 1:dim(model$samples$beta)[1])
+    {
+      total[j] =as.numeric(exp(sum(samples.beta[j,]*c(1,data$X2m_temperature[i],
+                                                        data$low_vegetation_cover[i],
+                                                        data$X10m_wind_speed[i],
+                                                        data$populationdensity[i])) + samples.phi[j,data$county_factor[i]] + (samples.alpha[j] + samples.delta[j,data$county_factor[i]])*((data$month_and_year_factor[i] - t.bar)/72)))
+  }
+  
+  return (median(total))
+}
+```
+
+Predict one county:
+```{r}
+forecast_one_county <- function(model, data, county_str){
+  county_data = data %>% 
+    subset(data$county == county_str)
+  total = matrix(NA,  nrow = dim(county_data)[1], ncol = dim(model$samples$beta)[1] )
+  samples.beta = as.matrix(model$samples$beta)
+  samples.phi = as.matrix(model$samples$phi)
+  samples.delta = as.matrix(model$samples$delta)
+  samples.alpha = as.vector(model$samples$alpha[,1])
+  #county <- rep(1:56,12)
+  #N = length(train$count)/56
+  t.bar = sum(1:72)/72
+  #total.median = rep(NA, each=dim(test)[1])
+  total.median = rep(NA, each=dim(county_data)[1])
+  for(i in 1:dim(county_data)[1]){
+    for(j in 1:dim(model$samples$beta)[1])
+      {
+        total[i,j] =as.numeric(exp(sum(samples.beta[j,]*c(1,county_data$X2m_temperature[i],
+                                                          county_data$low_vegetation_cover[i],
+                                                          county_data$X10m_wind_speed[i],
+                                                          county_data$populationdensity[i])) + samples.phi[j,county_data$county_factor[i]] + (samples.alpha[j] + samples.delta[j,county_data$county_factor[i]])*((county_data$month_and_year_factor[i] - t.bar)/72)))
+    }
+  total.median[i] = median(total[i,])
+  }
+  county_data["predicted_count"] = total.median
+  
+  return (county_data)
+}
+```
+
+
+Predict one month:
+```{r}
+forecast_one_month <- function(model, data, month_number, year_number){
+  month_data = data %>% 
+    subset(data$month_factor == month_number & data$year == year_number)
+  total = matrix(NA,  nrow = dim(month_data)[1], ncol = dim(model$samples$beta)[1] )
+  samples.beta = as.matrix(model$samples$beta)
+  samples.phi = as.matrix(model$samples$phi)
+  samples.delta = as.matrix(model$samples$delta)
+  samples.alpha = as.vector(model$samples$alpha[,1])
+  t.bar = sum(1:72)/72
+  total.median = rep(NA, each=dim(month_data)[1])
+  for(i in 1:dim(month_data)[1]){
+    for(j in 1:dim(model$samples$beta)[1])
+      {
+        total[i,j] =as.numeric(exp(sum(samples.beta[j,]*c(1,month_data$X2m_temperature[i],
+                                                          month_data$low_vegetation_cover[i],
+                                                          month_data$X10m_wind_speed[i],
+                                                          month_data$populationdensity[i])) + samples.phi[j,month_data$county_factor[i]] + (samples.alpha[j] + samples.delta[j,month_data$county_factor[i]])*((month_data$month_and_year_factor[i] - t.bar)/72)))
+    }
+  total.median[i] = median(total[i,])
+  }
+  month_data["predicted_count"] = total.median
+  
+  return (month_data)
+}
+```
+
+One sample forecasting:
+```{r}
+model <- ST.CARlinear(formula = "count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed + populationdensity",
+            family = 'poisson',
+            data = data,
+            W = W,
+            burnin = 5000,
+            n.sample = 10000)
+month_forecast <- forecast_one_month(model, data, 6, 2019)
+```
+
+Posterior predictive data for visualizing
+```{r}
+posterior_predictive_check <- function(model, data, county_str){
+  county_data = data %>% 
+    subset(data$county == county_str & year == 2019)
+  total = matrix(NA,  nrow = dim(county_data)[1], ncol = dim(model$samples$beta)[1] )
+  fake_data = matrix(NA,  nrow = dim(county_data)[1], ncol = dim(model$samples$beta)[1] )
+  samples.beta = as.matrix(model$samples$beta)
+  samples.phi = as.matrix(model$samples$phi)
+  samples.delta = as.matrix(model$samples$delta)
+  samples.alpha = as.vector(model$samples$alpha[,1])
+  t.bar = sum(1:72)/72
+  total.median = rep(NA, each=dim(county_data)[1])
+  for(i in 1:dim(county_data)[1]){
+    for(j in 1:dim(model$samples$beta)[1])
+      {
+        total[i,j] =as.numeric(exp(sum(samples.beta[j,]*c(1,county_data$X2m_temperature[i],
+                                                          county_data$low_vegetation_cover[i],
+                                                          county_data$X10m_wind_speed[i],
+                                                          county_data$populationdensity[i])) + samples.phi[j,county_data$county_factor[i]] + (samples.alpha[j] + samples.delta[j,county_data$county_factor[i]])*((county_data$month_and_year_factor[i] - t.bar)/72)))
+        fake_data[i,j] = rpois(1, total[i,j])
+    }
+  total.median[i] = median(total[i,])
+  }
+  total = data.frame(total)
+  fake_data = data.frame(fake_data)
+  total$month= county_data$month_factor
+  fake_data["month"] = county_data$month_factor
+  transpose_total = t(total)
+  transpose_fake_data = t(fake_data)
+  write.csv(total,"totalCarBayes.csv")
+  write.csv(fake_data,"fake_data.csv")
+  write.csv(transpose_total,"transpose_totalCarBayes.csv")
+  write.csv(transpose_fake_data,"transpose_fake_data.csv")
+  
+  
+  
+  stripchart(transpose_total)
+  
+
+  
+  
+  
+  return (total, fake_data)
+}
+```
+
+
+MIXED EFFECTS:
+
+Scaling the data
+```{r}
+temp_data <- scale(data[,10:19])
+data[,10:19] <- temp_data
+```
+
+
+The model:
+```{r}
+finalized_model <- glmer(formula=count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed  + populationdensity + (1|county) + (1|month_factor), data = data, family='poisson')
+```
+
+
+calculate MSE:
+```{r}
+total_mse <- 0
+for (y in 2013:2019){
+    train<- data %>%
+      subset(year!=y)
+    test<-data %>%
+      subset(year==y)
+    model <- glmer(formula=count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed  + populationdensity + (1|county) + (1|month_factor), data = train, family='poisson')
+    pred <- predict(model, test)
+   mse <- 0
+   preds <- as.vector(pred)
+   for(i in 1:length(test)){
+      mse = mse + ((test$count[i] - exp(preds[i]))**2)
+   }
+   total_mse = total_mse + mse/length(test)
+}
+total_mse/7
+```
+
+forecasting for a specific county, across all months
+```{r}
+county_data = data %>% 
+    subset(data$county == 'Riverside' & data$year == 2019)
+pred_riverside <- as.vector(exp(predict(model, county_data)))
+county_data["predicted_count"] <- pred_riverside
+```
+
+
+forecasting for a specific month, across all counties
+```{r}
+month_data = data %>% 
+    subset(month_factor == 6 & year == 2019)
+pred_july <- as.vector(exp(predict(model, month_data)))
+month_data["predicted_count"] <- pred_july
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
