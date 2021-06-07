@@ -3,8 +3,8 @@ library(ggforce)
 library(tidyverse)
 
 # need to run install.packages('ggforce') if you dont have it
-
-data = read.csv("~/Documents/GitHub/capstone-accenture/clean_data/fireClimateHumanTable.csv")
+# Insert your file path here
+data = read.csv("~/Documents/GitHub/capstone-accenture/clean_data/fireClimateHumanTable_editted.csv")
 
 ggplot(data, aes(y=total_precipitation, x=as.factor(count))) +
   geom_violin(color = 'transparent', fill = 'gray10') +
