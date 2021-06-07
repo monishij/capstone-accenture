@@ -17,7 +17,7 @@ library(ggplot2)
 
 This reads in the finalized data table with all variables.
 ```{r}
-data <- read.csv('~/Documents/GitHub/capstone-accenture/clean_data/fireClimateHumanTable4_editted.csv')
+data <- read.csv('clean_data/fireClimateHumanTable.csv')
 ```
 
 We add an indicator variable summer_month for whether the record is in the summer season or not (June, July, or August).
@@ -26,14 +26,6 @@ data <- data %>%
   mutate(summer_month = substr(time, 6, 7) == '06' | substr(time, 6, 7) == '07' | substr(time, 6, 7) == '08')
 ```
 
-
-At first, only including county as a random effect to control for the correlation between neighboring counties.
-We want to know if an association exists between predictors and response variable after controlling for the variation in county.
-Using lmer (meaning the response variable is expected to follow a Gaussian distribution) to compare against glmer later (with a Poisson distribution).
-```{r}
-mixed.lmer <- lmer(count ~ X2m_temperature + total_precipitation + low_vegetation_cover + X10m_wind_speed + volumetric_soil_water_layer_1 + total_cloud_cover + populationdensity + summer_month + (1|county), data = data)
-summary(mixed.lmer)
-```
 
 Now standardizing numeric predictors to ensure they are all comparable.
 ```{r}
@@ -46,37 +38,6 @@ Using glmer to specify Poisson response variable and two random effects for coun
 finalized_model <- glmer(formula=count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed  + populationdensity + (1|county) + (1|month_factor), data = data, family='poisson')
 ```
 
-
-
-Before performing k-fold cross validation, we wanted to take a look at just one train/test split with testing on 2019. 
-Creating training split for testing on 2019.
-```{r}
-test_2019 <- data %>%
-   subset(year==2019)
-train_2019 <- data %>%
-   subset(year!=2019)
-```
-
-Training the model specifically on train_2019, for predicting on 2019.
-```{r}
-model2019 <- glmer(formula=count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed  + populationdensity + (1|county) + (1|month_factor), data = train_2019, family='poisson')
-```
-
-Making predictions for test_2019 data.
-```{r}
-pred2019 <- exp(predict(model2019, test_2019))
-summary(exp(pred2019))
-```
-
-To evaluate how close we were to actual counted values, we calculate MSE.
-```{r}
-mse <- 0
-pred2019 <- as.vector(pred2019)
-for(i in 1:length(test_2019)){
-   mse = mse + (test_2019$count[i] - pred2019[i])**2
-}
-mse = mse/length(test_2019)
-```
 
 Rescaling population density predictor.
 ```{r}
