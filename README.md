@@ -20,11 +20,13 @@ Objective: _This project was given to us from Accenture and the goal was to pred
 * /SQL
   * **cleaningData.sql** - Further cleaning and combining of all tables created. Overall creates our final table and /COPY command for csv file.
   * **create_tables.sql** - Creates empty tables and commented /COPY commands for inserting our data.
-### /data_visualizations. -------> add in joya -> the R title
+### /data_visualizations.
 * **EDA for Summer Months.ipynb** - Insights about the data collected, specifically for summer months.
 * **Posterior Predictive Check.ipynb** - Visualization for our CARBayes model performance.
 * **california.png** - PNG file used as background for spatial visualization.
 * **pythonEDA(main).ipynb** - Insights about the data collected and further comments on what we learned from them. 
+* **sina_plots.R** - Contains sina plots to visualize distribution of certain predictors at each fire count level.
+
 ### /raw_data
 * /forSQL
   * **newClimateData.csv** - Cleaned climate data, representing the average climate on a monthly basis from 2013-2019.
