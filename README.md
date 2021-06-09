@@ -1,6 +1,8 @@
 # Capstone-Accenture
 ## Quick Start
-* Run the notebook -> details of everything
+* **ModelingAndForecasting.Rmd** - This is the main notebook that you would run for all the modeling and forecasting we do. It also has an html version called project.html. In order to run it, make sure you clone the whole project directory in order to load the data correctly from the csv. You need both the fireClimateHumanTable_editted.csv data file, as well as the neighborhoodMatrix.csv file. 
+* **carbayes_modelling.Rmd** - This file contains all the carbayes modeling and visualization code. Some of its code is also in the main ModelingAndForecasting.Rmd file.
+*  **random_effects_modelling.Rmd** - This file contains all the random effects modeling and visualization code. Some of its code is also in the main ModelingAndForecasting.Rmd file.
 
 ## Overview
 Objective: _This project was given to us from Accenture and the goal was to predict the count of expected wildfire occurrences given a specific place and time within California, alongside a number of different climate and human trigger predictors._
@@ -18,7 +20,9 @@ Objective: _This project was given to us from Accenture and the goal was to pred
 * /SQL
   * **cleaningData.sql** - Further cleaning and combining of all tables created. Overall creates our final table and /COPY command for csv file.
   * **create_tables.sql** - Creates empty tables and commented /COPY commands for inserting our data.
-### /data_visualizations. -------> add in joya and saadia
+### /data_visualizations. -------> add in joya -> the R title
+* **EDA for Summer Months.ipynb** - Insights about the data collected, specifically for summer months.
+* **Posterior Predictive Check.ipynb** - Visualization for our CARBayes model performance.
 * **california.png** - PNG file used as background for spatial visualization.
 * **pythonEDA(main).ipynb** - Insights about the data collected and further comments on what we learned from them. 
 ### /raw_data
@@ -36,9 +40,9 @@ Objective: _This project was given to us from Accenture and the goal was to pred
 * **raw_fireData.csv** - True raw version of fire data. Information was pulled from fire.ca.gov
 ### /retrieving_climate_data
 * **retrieveCDSclimateData.py** - Python script to use Copernicus API and grab the neccessary climate features.
-### /tableau -------> talk to saadia about the data stuff
+### /tableau
 * /images
-### other - model/R scripts -------> 
-* **ModelingAndForecasting.Rmd** - This is the main notebook that you would run for all the modeling and forecasting we do. It also has an html version called project.html. In order to run it, make sure you clone the whole project directory in order to load the data correctly from the csv. You need both the fireClimateHumanTable_editted.csv data file, as well as the neighborhoodMatrix.csv file. 
-* **carbayes_modelling.Rmd** - This file contains all the carbayes modeling and visualization code. Some of its code is also in the main ModelingAndForecasting.Rmd file.
-*  **random_effects_modelling.Rmd** - This file contains all the random effects modeling and visualization code. Some of its code is also in the main ModelingAndForecasting.Rmd file.
+ * **/Line** - Data used for the Line Dashboard.
+ * **/Map** - Data used for the Map Dashboard.
+ * **/images** - Screenshot images of the dashboards used.
+ * **workbook.twb** - Tableau workbook space. Contains all visuals and how it was created.
