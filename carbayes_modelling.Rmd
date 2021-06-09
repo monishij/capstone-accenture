@@ -18,7 +18,6 @@ Rescale: populationdensity/10
 ```{r import-data (insert file location)}
 data <- read.csv('clean_data/fireClimateHumanTable_editted.csv')
 data$populationdensity <- data$populationdensity/10
-data
 ```
 
 
@@ -32,7 +31,6 @@ for(i in 1:56){
     W[i,j] = as.numeric(neighborhood_matrix[i+1,j+1])
   }
 }
-W
 ```
 
 Our final model:
@@ -71,54 +69,6 @@ plot(final_model$samples$beta[,2], main= "X2m_temperature DensityPlot")
 hist(final_model$samples$beta[,2], xlab = "coeff of X2m_temperature", main = "Posterior Distribution of X2m_temperature") 
 hist(final_model$samples$beta[,4], xlab = "coeff of X10m_windspeed", main = "Posterior Distribution of X10m_wind_speed") 
 ```
-
-
-
-Here is our MSE function:
-
-(It takes really long to run due to it using all the iterations. It'll be faster to use the one in modelingAndForecasting.rmd)
-
-
-```{r}
-model = final_model
-total = matrix(NA,  nrow = dim(test)[1], ncol = dim(model$samples$beta)[1] )
-samples.beta = as.matrix(model$samples$beta)
-samples.phi = as.matrix(model$samples$phi)
-samples.delta = as.matrix(model$samples$delta)
-samples.alpha = as.vector(model$samples$alpha[,1])
-t = as.vector(rep(73:84, each=56))
-county <- rep(1:56,12)
-N = length(train$count)/56
-t.bar = sum(1:72)/72
-total.median = rep(NA, each=dim(test)[1])
-for(i in 1:dim(test)[1]){
-  for(j in 1:dim(model$samples$beta)[1])
-  {
-    total[i,j] =as.numeric(exp(sum(samples.beta[j,]*c(1,test$X2m_temperature[i],
-                                                      test$total_precipitation[i],
-                                                      test$low_vegetation_cover[i],
-                                                     test$high_vegetation_cover[i],
-                                                      test$X10m_wind_speed[i],
-                                                     test$housingdensity[i],
-                                                      test$population[i])) + samples.phi[j,test$county_factor[i]] + (samples.alpha[j] + samples.delta[j,test$county_factor[i]])*((test$month_and_year_factor[i] - t.bar)/72)))
-  }
-  total.median[i] = median(total[i,])
-}
-
-mse = 0
-#hist(total[1,])
-#total.median = floor(total.median)
-for(i in 1:length(total.median)){
-  mse = mse + (test$count[i] - total.median[i])**2
-}
-mse = mse/length(total.median)
-mse
-total
-```
-
-
-
-
 
 
 

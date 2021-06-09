@@ -13,18 +13,18 @@ library('lme4')
 library(tidyverse)
 library(janitor)
 library(ggplot2)
+library(dplyr)
 ```
 
 Load the data from the clean data folder: INSERT PATH HERE, and scale population density
 ```{r loading data}
-data <- read.csv('clean_data/fireClimateHumanTable.csv')
+data <- read.csv('clean_data/fireClimateHumanTable_editted.csv')
 data$populationdensity <- data$populationdensity/10
-data
 ```
 Load the neighborhood matrix and format it
 
 ```{r load neighborhood matrix}
-neighborhood_matrix <- read.csv('clean_data/neighboorHoodMatrix.csv', header=FALSE)
+neighborhood_matrix <- read.csv('clean_data/neighborhoodMatrix.csv', header=FALSE)
 neighborhood_matrix <- as.matrix(neighborhood_matrix)
 W <- matrix(NA, 56, 56)
 for(i in 1:56){
@@ -32,7 +32,6 @@ for(i in 1:56){
     W[i,j] = as.numeric(neighborhood_matrix[i+1,j+1])
   }
 }
-W
 ```
 
 FOR CARBAYES:
@@ -78,6 +77,8 @@ train_test_validation <- function(formula_string, data, W){
     for(i in 1:dim(test)[1]){
       for(j in 1:dim(model$samples$beta)[1])
       {
+        i = 1
+        j = 1
         total[i,j] =as.numeric(exp(sum(samples.beta[j,]*c(1,test$X2m_temperature[i],
                                                           test$low_vegetation_cover[i],
                                                           test$X10m_wind_speed[i],
@@ -100,6 +101,8 @@ train_test_validation <- function(formula_string, data, W){
 
 
 ```{r}
+y = 2013
+formula_string = "count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed + populationdensity"
 train_test_validation("count ~ X2m_temperature + low_vegetation_cover + X10m_wind_speed + populationdensity", data, W)
 ```
 
