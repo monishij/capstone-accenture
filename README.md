@@ -38,4 +38,7 @@ Objective: _This project was given to us from Accenture and the goal was to pred
 * **retrieveCDSclimateData.py** - Python script to use Copernicus API and grab the neccessary climate features.
 ### /tableau -------> talk to saadia about the data stuff
 * /images
-### other - model/R scripts -------> todo
+### other - model/R scripts -------> 
+* **ModelingAndForecasting.Rmd** - This is the main notebook that you would run for all the modeling and forecasting we do. It also has an html version called project.html. In order to run it, make sure you clone the whole project directory in order to load the data correctly from the csv. You need both the fireClimateHumanTable_editted.csv data file, as well as the neighborhoodMatrix.csv file. 
+* **carbayes_modelling.Rmd** - This file contains all the carbayes modeling and visualization code. Some of its code is also in the main ModelingAndForecasting.Rmd file.
+*  **random_effects_modelling.Rmd** - This file contains all the random effects modeling and visualization code. Some of its code is also in the main ModelingAndForecasting.Rmd file.
